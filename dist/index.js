@@ -32811,13 +32811,15 @@ function run() {
   const checklistItems = core.getInput('checklist-items', { required: true }).split('\n');
 
 
-  if (pullRequest) {
-    const body = pullRequest.body.split('\n');
+  if (!pullRequest) {
+    core.warning(`Unable to find associated pull request from the context: ${JSON.stringify(github.context)}`);
+  }
 
-    const errorMessages = checkForErrors(body, checklistItems);
-    if (errorMessages.length != 0) {
-      core.setFailed(`Found ${errorMessages.length} errors:\n` + errorMessages.map(msg => '   - ' + msg).join('\n'));
-    }
+  const body = pullRequest.body.split('\n');
+
+  const errorMessages = checkForErrors(body, checklistItems);
+  if (errorMessages.length != 0) {
+    core.setFailed(`Found ${errorMessages.length} errors:\n` + errorMessages.map(msg => '   - ' + msg).join('\n'));
   }
 }
 
