@@ -6,6 +6,6 @@ runs:
   using: node16
   main: dist/index.js
 inputs:
-  checklistItems:
+  checklist-items:
     description: List of newline separated check list items that should be checked our struck out, e.g. `DCO added to all commits`
     required: true

@@ -4,7 +4,7 @@ A GitHub action ensuring that PRs include specific details in the description.
 
 ```yaml
 inputs:
-  checklistItems:
+  checklist-items:
     description: List of newline separated check list items that should be checked our struck out, e.g. `DCO added to all commits`
     required: true
 ```
@@ -26,6 +26,6 @@ jobs:
     steps:
       - uses: peternied/check-pull-request-description@v1
         with:
-          checklistItems: |
+          checklist-items: |
             Added unit test(s)
 ```
