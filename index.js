@@ -41,7 +41,7 @@ const completionInstructions = "Check list item that should be checked \`[x]\` o
 function checkForCheckListItem(body, item) {
   for (let i = 0; i < body.length; i++) {
     const currentLine = body[i];
-    if (currentLine.contains(item)) {
+    if (currentLine.includes(item)) {
       if (hasCheckedItem(line, item)) {
         core.info(`Found completed checklist item ${item}`);
         return null;
@@ -62,11 +62,11 @@ function checkForCheckListItem(body, item) {
 
 
 function hasCheckedItem(line, checklistItem) {
-  return line.contains(`[x] ${checklistItem}`) || line.contains(`[X] ${checklistItem}`);
+  return line.includes(`[x] ${checklistItem}`) || line.includes(`[X] ${checklistItem}`);
 }
 
 function hasInactiveItem(line, checklistItem) {
-  return line.contains(`~${checklistItem}~`);
+  return line.includes(`~${checklistItem}~`);
 }
 
 run();
