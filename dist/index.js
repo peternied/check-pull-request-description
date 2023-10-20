@@ -32845,14 +32845,22 @@ function checkForCheckListItem(body, item) {
   for (let i = 0; i < body.length; i++) {
     const currentLine = body[i];
     if (currentLine.contains(item)) {
-      if (hasCheckedItem(line, item) || hasInactiveItem(line, item)) {
+      if (hasCheckedItem(line, item)) {
+        core.info(`Found completed checklist item ${item}`);
+        return null;
+      } else if (hasInactiveItem(line, item)) {
+        core.info(`Found inactive checklist item ${item}`);
         return null;
       }
-      return `${completionInstructions} Line \`${line}\`` 
+      const message = `${completionInstructions} Line \`${line}\``;
+      core.error(message);
+      return message;
     }
   }
 
-  return `Unable to find check list item \`${item}\` in the pull request description. ${completionInstructions}`;
+  const message = `Unable to find check list item \`${item}\` in the pull request description. ${completionInstructions}`;
+  core.error(message);
+  return message;
 }
 
 
