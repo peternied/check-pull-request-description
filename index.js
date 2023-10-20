@@ -42,14 +42,14 @@ function checkForCheckListItem(body, item) {
   for (let i = 0; i < body.length; i++) {
     const currentLine = body[i];
     if (currentLine.includes(item)) {
-      if (hasCheckedItem(line, item)) {
+      if (hasCheckedItem(currentLine, item)) {
         core.info(`Found completed checklist item ${item}`);
         return null;
-      } else if (hasInactiveItem(line, item)) {
+      } else if (hasInactiveItem(currentLine, item)) {
         core.info(`Found inactive checklist item ${item}`);
         return null;
       }
-      const message = `${completionInstructions} Line \`${line}\``;
+      const message = `${completionInstructions} Line \`${currentLine}\``;
       core.error(message);
       return message;
     }
