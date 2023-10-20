@@ -18,7 +18,7 @@ function run() {
   }
 }
 
-function checkForErrors(body, replacedTextSections, checklistItems) {
+function checkForErrors(body, checklistItems) {
   const errorMessages = [];
 
   if (checklistItems) {
