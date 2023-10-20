@@ -1,10 +1,15 @@
-# Check Pull Request Description
+# check-pull-request-description
 
-![Version](https://img.shields.io/github/v/release/nouzbe/check-pull-request-description?style=flat-square)
+A GitHub action ensuring that PRs include specific details in the description.
 
-A GitHub action ensuring that PRs have descriptions.
+```yaml
+inputs:
+  checklistItems:
+    description: List of newline separated check list items that should be checked our struck out, e.g. `DCO added to all commits`
+    required: true
+```
 
-# Example Workflow
+## Usage
 
 ```yml
 name: "PR description check"
@@ -17,8 +22,10 @@ on:
 
 jobs:
   publish:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: nouzbe/check-pull-request-description@v1.11
+      - uses: peternied/check-pull-request-description@v1
+        with:
+          checklistItems: |
+            Added unit test(s)
 ```

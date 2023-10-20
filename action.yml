@@ -1,5 +1,4 @@
 name: Check pull request description
-description: Ensures that pull requests have a non-empty description
 branding:
   icon: book-open
   color: green
@@ -7,9 +6,6 @@ runs:
   using: node16
   main: dist/index.js
 inputs:
-  replacedTextSections:
-    description: List of newline seperated sections of the pull request description that should be replaced, e.g. "[Describe what this change achieves]"
-    required: true
   checklistItems:
-    description: List of newline seperated check list items that should be checked our struck out, e.g. ` - [ ] DCO added to all commits`
+    description: List of newline separated check list items that should be checked our struck out, e.g. `DCO added to all commits`
     required: true
