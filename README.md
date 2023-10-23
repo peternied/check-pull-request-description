@@ -1,4 +1,4 @@
-# check-pull-request-description
+# check-pull-request-description-checklist
 
 A GitHub action ensuring that PRs include specific details in the description.
 
@@ -24,8 +24,13 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: peternied/check-pull-request-description@v1
+      - uses: peternied/check-pull-request-description-checklist@v1
         with:
           checklist-items: |
             Added unit test(s)
 ```
+
+# Changelog
+
+## v1
+- Initial Release
