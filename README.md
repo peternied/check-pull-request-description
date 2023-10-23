@@ -1,6 +1,6 @@
 # check-pull-request-description-checklist
 
-A GitHub action ensuring that PRs include specific details in the description.
+Reads pull request body and makes sure that items are checked or struck out to make reading descriptions easier for maintainers and contributors.
 
 ```yaml
 inputs:

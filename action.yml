@@ -1,4 +1,5 @@
-name: Check pull request description
+name: Check pull request description checklist
+description: Reads pull request body and makes sure that items are checked or struck out to make reading descriptions easier for maintainers and contributors.
 branding:
   icon: book-open
   color: green
