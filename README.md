@@ -24,13 +24,16 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: peternied/check-pull-request-description-checklist@v1
+      - uses: peternied/check-pull-request-description-checklist@v1.1
         with:
           checklist-items: |
             Added unit test(s)
 ```
 
 # Changelog
+
+## v1.1
+* Ignore items where the checkbox is part of the strike-through by @msfroh
 
 ## v1
 - Initial Release
