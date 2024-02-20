@@ -32871,7 +32871,7 @@ function hasCheckedItem(line, checklistItem) {
 }
 
 function hasInactiveItem(line, checklistItem) {
-  return line.includes(`~${checklistItem}~`);
+  return line.includes(`~${checklistItem}~`) || line.includes(`~[ ] ${checklistItem}~`);
 }
 
 run();
